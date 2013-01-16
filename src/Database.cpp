@@ -4,7 +4,7 @@
 Database::Database()
 {
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("41.224.243.211"); //192.168.10.151
+    db.setHostName("192.168.23.10"); //192.168.10.151
     db.setDatabaseName("stephan");
     db.setUserName("Chef_Stephan");//stephan_admin
     db.setPassword("stephan"); //SimuLabo
