@@ -3,18 +3,22 @@
 
 #include <QSqlDatabase>
 #include <QMessageBox>
+#include <QWidget>
 #include <QtDebug>
 #include <QSqlError>
 
-class Database {
+extern QByteArray ipServer;
+class Database : public QWidget{
+  Q_OBJECT
 public:
-    Database();
+    explicit Database(QWidget *parent = 0);
     void openConnection();
     QSqlDatabase getDb();
-private :
+    bool checkDB();
     QSqlDatabase db;
+private :
+   static bool connectionStatus;
 
 };
 
 #endif // DATABASECONNECTION_H
-
