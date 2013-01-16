@@ -28,7 +28,7 @@ GroundZero::GroundZero(QWidget *parent):QStackedWidget(parent)
     addWidget(menuajouter);
     
 
-    setCurrentWidget(one);
+    setCurrentWidget(login);
     QObject::connect(one->ui->modifier,SIGNAL(clicked()),this,SLOT(enterModif()));
     QObject::connect(one->ui->ajouterProd,SIGNAL(clicked()),this,SLOT(enterMenuAjouter()));
     QObject::connect(two->retour,SIGNAL(clicked()),this,SLOT(backToAdmin()));
