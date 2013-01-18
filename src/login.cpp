@@ -30,7 +30,7 @@ bool Login::check()
     
 
     QString str = "SELECT id from Admin where login = ";
-    str.append("\""+login+"\"").append(" AND password = ").append("\""+password+"\"");
+    str.append("\""+login+"\"").append(" AND password = ").append("MD5(\""+password+"\")");
 
     QSqlQuery verify(str);
 

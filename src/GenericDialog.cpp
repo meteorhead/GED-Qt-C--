@@ -96,7 +96,7 @@ void GenericDialog::soumettre_op()
              {
                  QSqlQuery query;
                       query.prepare("INSERT INTO operateurs (login, password,matricule_RH) "
-                                    "VALUES (:login, :password, :matricule)");
+                                    "VALUES (:login, MD5(:password), :matricule)");
                       query.bindValue(":login", login->text());
                       query.bindValue(":password", password->text());
                       query.bindValue(":matricule", matricule->text());

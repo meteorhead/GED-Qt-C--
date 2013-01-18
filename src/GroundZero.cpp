@@ -180,7 +180,7 @@ else
         {
             if(!two->password->text().isEmpty())
             {
-             QSqlQuery query(QString("UPDATE operateurs SET login = ").append("\""+two->login->text()+"\"").append(", password = ").append("\""+two->password->text()+"\"").append(", matricule_RH = ").append("\""+two->matricule->text()+"\"").append(" WHERE id = ").append("\""+id_modif+"\""));
+             QSqlQuery query(QString("UPDATE operateurs SET login = ").append("\""+two->login->text()+"\"").append(", password = ").append("MD5(\""+two->password->text()+"\")").append(", matricule_RH = ").append("\""+two->matricule->text()+"\"").append(" WHERE id = ").append("\""+id_modif+"\""));
 
 
                if (query.exec())
@@ -220,9 +220,6 @@ else
 
 
         }
-
-
-
 }
 
 
