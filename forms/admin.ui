@@ -268,7 +268,7 @@ max-height:20px;
     </font>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="operateurs">
     <property name="styleSheet">

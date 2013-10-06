@@ -1,6 +1,6 @@
 #include "admin.h"
 #include "ui_admin.h"
-#include <qwt_plot_curve.h>
+//#include <qwt_plot_curve.h>
 #include <QDataWidgetMapper>
 
 Admin::Admin(QWidget *parent) :
@@ -49,16 +49,16 @@ void Admin::miseEnForme()
     modelconsultation = new QSqlQueryModel;
     modelfiltres = new QSqlQueryModel;
     proxy = new QSqlQueryModel;
-    plotTemp = new QwtPlot(ui->frameCourbe);
-    plotTemp->setFixedSize(380,380);
-    courbeTemperature = new QwtPlotCurve;
-    courbeTemperature->attach(plotTemp);
-    plotTemp->setCanvasBackground(Qt::blue);
+   // plotTemp = new QwtPlot(ui->frameCourbe);
+   // plotTemp->setFixedSize(380,380);
+   // courbeTemperature = new QwtPlotCurve;
+   // courbeTemperature->attach(plotTemp);
+   // plotTemp->setCanvasBackground(Qt::blue);
     ui->datedebutfiltres->setDisplayFormat("dd/MM/yyyy");
     ui->datefinfiltres->setDisplayFormat("dd/MM/yyyy");
     ui->datedebuttemperature->setDisplayFormat("dd/MM/yyyy");
     ui->datefintemperature->setDisplayFormat("dd/MM/yyyy");
-    plotTemp->show();
+    //plotTemp->show();
     int day = QDate::currentDate().day();
     if (day > 1)
     {
@@ -136,10 +136,10 @@ void Admin::validerrefresh()
     datefin = param->ui->datefin->dateTime().toString("yyyy-MM-dd hh:mm:ss");
 
     QString str = "SELECT * FROM enregistrements WHERE stephan = ";
-    str.append("\""+steph+"\"").append(" AND Nom_Produit = ").append("\""+produit+"\"").append(" AND Date Between ").append("\""+datedebut+"\"").append(" AND ").append("\""+datefin+"\"");
+    str.append("\""+steph+"\"").append(" AND Nom_Produit = ").append("\""+produit+"\"").append(" AND Debut Between ").append("\""+datedebut+"\"").append(" AND ").append("\""+datefin+"\"");
 
-
-    modelconsultation->setQuery(QString("SELECT * FROM enregistrements WHERE stephan = ").append("\""+steph+"\"").append(" AND Nom_Produit = ").append("\""+produit+"\"").append(" AND Date Between ").append("\""+datedebut+"\"").append(" AND ").append("\""+datefin+"\""));
+    qDebug() << str;
+    modelconsultation->setQuery(QString("SELECT * FROM enregistrements WHERE stephan = ").append("\""+steph+"\"").append(" AND Nom_Produit = ").append("\""+produit+"\"").append(" AND Debut Between ").append("\""+datedebut+"\"").append(" AND ").append("\""+datefin+"\""));
     QSqlQuery getId(QString("SELECT id FROM produit WHERE Nom_Produit = ").append("\""+produit+"\"").append(" ORDER BY id DESC LIMIT 1"));
             while (getId.next())
             index = getId.value(0).toString();
@@ -154,7 +154,7 @@ void Admin::validerrefresh()
             proxy->setQuery(QString("SELECT ingredients FROM ingredients WHERE ingredients.indexx = ").append("\""+index+"\""));
 
 
-            int j=18;
+            int j=19;
             for (int i=0;i<16;i++)
             {
                     QModelIndex index = proxy->index(i,0);
@@ -203,7 +203,7 @@ void Admin::refreshFiltres()
 
 void Admin::exportproduit()
 {   QString dateexport = QDate::currentDate().toString();
-    QFile file(QString("/home/test.csv"));
+    QFile file(QString("/home/ghaith/test.csv"));
         file.open(QIODevice::ReadWrite | QIODevice::Text);
         int rowCount = modelconsultation->rowCount();
         int columnCount = modelconsultation->columnCount();
@@ -407,11 +407,11 @@ QString datedebutTemp;
       //yTemp.append(queryTemp.value(2).toDouble());
       
     }
-    courbeTemperature->setSamples(xDate.data(),yTemp.data(),xDate.size());
+   // courbeTemperature->setSamples(xDate.data(),yTemp.data(),xDate.size());
       
     //courbeTemperature->setSamples();
      qDebug() << Temp;
-      plotTemp->replot();
-      plotTemp->show();
+     // plotTemp->replot();
+     // plotTemp->show();
 
 }

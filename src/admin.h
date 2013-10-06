@@ -15,8 +15,8 @@
 #include "ui_parametrage.h"
 #include <QComboBox>
 #include <QDate>
-#include <qwt_plot.h>
-#include <qwt_plot_curve.h>
+//#include <qwt_plot.h>
+//#include <qwt_plot_curve.h>
 
 
 namespace Ui {
@@ -78,8 +78,8 @@ private:
  int rowCountProg;
  int idRefreshTableProgramme;
  QString indexProduit;
- QwtPlot *plotTemp;
- QwtPlotCurve *courbeTemperature;
+ //QwtPlot *plotTemp;
+ //QwtPlotCurve *courbeTemperature;
 
 };
 

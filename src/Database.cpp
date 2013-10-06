@@ -16,10 +16,10 @@ Database::Database(QWidget *parent) : QWidget(parent)
     }
     
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("192.168.23.10"); //192.168.23.10
-    db.setDatabaseName("stephan");
-    db.setUserName("Chef_Stephan");//Chef_Stephan
-    db.setPassword("stephan"); //stephan
+    db.setHostName("127.0.0.1"); 
+    db.setDatabaseName("db"); // Database name
+    db.setUserName("sasquatch"); // Your Username here
+    db.setPassword("YourPasswordHere"); // Your password here
 
 
 
