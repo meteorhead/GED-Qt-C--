@@ -1,9 +1,8 @@
-HMI
+QGED
 =======
 
-Copyright (c) 2009-2011 Ghaith BELGACEM, SimuLabo sarl
+Copyright (c) 2012-2013 Ghaith BELGACEM, Auto-entrepreneur
 
-http://simulabo.com
 
 
 This program is free software; you can redistribute it and/or modify 
@@ -22,13 +21,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 
-What is HMI?
+What is QGED?
 ----------------
 
-HMI is a free Qt-based implementation of a Human Machine Interface application.
-A graphical user interface allows easy manipulation of standard cheese coocking
-machine over serial line. HMI also includes a monitor for logging all done jobs
-on a MySql Database.
+QGED is a free Qt-based implementation of a Human Machine Interface application.
+A graphical user interface allows easy manipulation of documents and employees. All done jobs are logged
+to a MySql Database.
 
 
 
@@ -51,4 +49,4 @@ Contact
 -------
 
 Any suggestions, patches etc. are welcome. Simply send a mail to
-info (at) simulabo (dot) com.
+meteorhead (at) gmx (dot) com.
